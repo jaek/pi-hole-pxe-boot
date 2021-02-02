@@ -13,5 +13,5 @@ RUN apk upgrade --no-cache && \
            /var/cache/apk/*  \
            /var/tmp/*
 EXPOSE 67/udp
-ENTRYPOINT ["dnsmasq", "-k", "--dhcp-broadcast]	
+ENTRYPOINT ["dnsmasq", "-k", "--dhcp-broadcast"]	
 

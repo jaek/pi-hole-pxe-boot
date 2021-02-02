@@ -1,7 +1,7 @@
 #!/bin/bash
-docker run --rm --name=dnsmasq --cap-add=NET_ADMIN \
-  -it \
+
+docker run -d --rm --name=dnsmasq --cap-add=NET_ADMIN \
   -v /etc/localtime:/etc/localtime:ro \
-  -v /home/pi/dnsmasq_docker/dnsmasq.conf:/etc/dnsmasq.conf \
+  -v $PWD/dnsmasq.conf:/etc/dnsmasq.conf \
   --net host \
-  373814265829
+  dnsmasq-pihole

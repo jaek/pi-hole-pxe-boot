@@ -1,0 +1,15 @@
+[Unit]
+Description=DNSMasq Container
+Requires=docker.service
+After=docker.service
+
+[Service]
+User=root
+ExecStart=/usr/bin/docker run --rm --name=dnsmasq --cap-add=NET_ADMIN \
+  -v /etc/localtime:/etc/localtime:ro \
+  -v /opt/dnsmasq-proxy/dnsmasq.conf:/etc/dnsmasq.conf \
+  --net host \
+  dnsmasq-pihole 
+
+[Install]
+WantedBy=local.target
